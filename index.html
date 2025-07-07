@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>alfaBeto</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #f9db5c;
+      font-family: sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .beto-container {
+      position: absolute;
+      left: 25%;
+      top: 55%;
+      transform: translate(-40%, -40%);
+      z-index: 0;
+    }
+
+    .beto-container img {
+      width: 350px;
+      max-width: 100%;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      z-index: 1;
+    }
+
+    .logo-alfabeto {
+      width: 500px;
+      max-width: 90vw;
+      margin-left: 210px;
+      margin-top: -60px;
+    }
+
+    .btn-lapis {
+      width: 150px;
+      margin-left: 500px; /* desloca à direita */
+      margin-top: -20px;  /* desloca para baixo */
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-lapis:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="beto-container">
+    <img src="Beto2.png" alt="Mascote Beto sorrindo">
+  </div>
+
+  <div class="main-content">
+    <img src="alfabeto.png" alt="alfaBeto" class="logo-alfabeto">
+    
+    <a href="apresentacao.html">
+      <img src="lapisentrar.png" alt="Botão com lápis para entrar na apresentação" class="btn-lapis">
+    </a>  
+  </div>
+</body>
+</html>
+

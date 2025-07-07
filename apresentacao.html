@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>alfaBeto</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #f9db5c;
+      font-family: sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .beto-container {
+      position: absolute;
+      left: 30%;
+      top: 45%;
+      transform: translate(-40%, -40%);
+      z-index: 2;
+    }
+
+    .beto-container img {
+      width: 450px;
+      margin-top: 90px;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      gap: 20px;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .speech-bubble {
+      position: relative;
+      width: 600px;
+      max-width: 90%;
+      margin-left: 500px;
+      margin-top: -78px;
+      min-height: 300px;
+      visibility: hidden;
+    }
+
+    .speech-bubble img {
+      width: 100%;
+      height: auto;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    .speech-text {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      font-size: clamp(14px, 1.8vw, 18px);
+      color: black;
+      text-align: center;
+      padding: 10px;
+      z-index: 2;
+    }
+
+    .speech-text button {
+      padding: 10px 10px;
+      font-size: 20px;
+      background-color: #c8a2c8; 
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: inline-block;
+    }
+
+    .speech-text button:hover {
+      background-color: #785ea0; 
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="beto-container">
+    <img id="beto-img" src="Betorosto.png" alt="Beto" />
+  </div>
+
+  <div class="main-content">
+    <div class="speech-bubble">
+      <img src="balao2.png" alt="balão de fala com fundo transparente" />
+      <div class="speech-text">
+        Olá, eu sou o Beto!<br /><br />
+        Neste espaço, professores de alfabetização <br>encontram links de sites com <br>ferramentas e materiais livres de A a Z <br>e ainda <br />
+        podem contribuir com suas sugestões!<br /><br />  
+        Clique <button onclick="window.location.href='alfaBeto.html'">
+          aqui 
+        </button> e venha conhecer!
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("load", function () {
+      document.querySelector(".speech-bubble").style.visibility = "visible";
+
+      const betoImg = document.getElementById("beto-img");
+      const aberto = "Betorosto.png";
+      const piscando = "Betorosto_piscando.png";
+
+      // Pisca assim que a página é carregada
+      betoImg.src = piscando;
+      setTimeout(() => {
+        betoImg.src = aberto;
+      }, 200);
+
+      // Pisca a cada 2.5 segundos
+      setInterval(() => {
+        betoImg.src = piscando;
+        setTimeout(() => {
+          betoImg.src = aberto;
+        }, 200);
+      }, 2500);
+    });
+  </script>
+</body>
+</html>
+

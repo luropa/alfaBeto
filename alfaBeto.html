@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>alfaBeto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #f9db5c;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Fredoka One', cursive;
+    }
+
+    .esquerda, .direita {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+
+    .esquerda {
+      justify-content: center;
+      padding-right: 0; /* retirado o espaçamento extra */
+      animation: flutuar 3s ease-in-out infinite;
+    }
+
+    .direita {
+      justify-content: flex-start;
+      padding-left: 60px;
+    }
+
+    .container-beto {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+
+    .beto {
+      width: 400px;
+      z-index: 1;
+    }
+
+    .livro-letra {
+      position: absolute;
+      width: 150px;
+      height: 40px;
+      background: transparent;
+      color: #000000;
+      font-weight: bold;
+      font-size: 36px;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-shadow: 1px 1px 2px #fff;
+    }
+
+    .livro1 { top: -15px; left: 50%; transform: translateX(-50%); }
+    .livro2 { top: 40%; left: -75px; transform: translateY(-50%); }
+    .livro3 { top: 40%; right: -55px; transform: translateY(-50%); }
+    .livro4 { bottom: -10px; left: 20%; transform: translateX(-50%); }
+    .livro5 { bottom: -10px; right: 25%; transform: translateX(50%); }
+
+    .flutua {
+      animation: flutuar 3s ease-in-out infinite;
+      display: inline-block;
+    }
+
+    .flutua.delay1 { animation-delay: 0s; }
+    .flutua.delay2 { animation-delay: 0.3s; }
+    .flutua.delay3 { animation-delay: 0.6s; }
+    .flutua.delay4 { animation-delay: 0.9s; }
+    .flutua.delay5 { animation-delay: 1.2s; }
+
+    .livro-wrapper {
+      position: relative;
+      width: 300px;
+    }
+
+    .livro-img {
+      width: 100%;
+      cursor: pointer;
+      display: block;
+    }
+
+    .texto-capa {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ffb100;
+      font-size: 28px;
+      font-weight: bold;
+      font-family: 'Fredoka One', cursive;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      pointer-events: none;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    @keyframes flutuar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Livro flutuante com texto sobre a capa -->
+  <div class="esquerda">
+    <a href="https://forms.gle/YQQru8TDx69pDyyC7" target="_blank">
+      <div class="livro-wrapper">
+        <img src="livrodelado2.png" alt="Livro" class="livro-img">
+      </div>
+    </a>
+  </div>
+
+  <!-- Beto e letras à direita -->
+  <div class="direita">
+    <div class="container-beto">
+      <img id="beto-img" src="Beto.png" alt="Beto" class="beto">
+
+      <div class="livro-letra livro1">
+        <div class="flutua delay1"><a href="A-E.html"><strong>A-E</strong></a></div>
+      </div>
+      <div class="livro-letra livro2">
+        <div class="flutua delay2"><a href="F-J.html"><strong>F-J</strong></a></div>
+      </div>
+      <div class="livro-letra livro3">
+        <div class="flutua delay3"><a href="K-O.html"><strong>K-O</strong></a></div>
+      </div>
+      <div class="livro-letra livro4">
+        <div class="flutua delay4"><a href="P-T.html"><strong>P-T</strong></a></div>
+      </div>
+      <div class="livro-letra livro5">
+        <div class="flutua delay5"><a href="U-Z.html"><strong>U-Z</strong></a></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("load", function () {
+      const betoImg = document.getElementById("beto-img");
+      const olhandoFrente = "Beto.png";
+      const olhandoLado = "Beto3.png";
+
+      function olharParaOLado() {
+        betoImg.src = olhandoLado;
+        setTimeout(() => {
+          betoImg.src = olhandoFrente;
+        }, 500);
+      }
+
+      olharParaOLado();
+      setInterval(olharParaOLado, 2500);
+    });
+  </script>
+
+</body>
+</html>
+
